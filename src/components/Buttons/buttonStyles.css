@@ -1,0 +1,93 @@
+.demo-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.variant-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.variant-tab {
+  border: 1px solid #ddd;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.variant-tab.active {
+  background: #344150;
+  color: white;
+  font-weight: 600;
+}
+
+.preview-area {
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #344150;
+  color: white;
+  border: none;
+}
+
+.btn-outline {
+  border: 2px solid #344150;
+  color: #344150;
+  background: transparent;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #344150;
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, #344150, #d4af37);
+  color: white;
+  border: none;
+}
+
+pre {
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  white-space: pre-wrap;
+}
+.btn-underline {
+  background: transparent;
+  color: #344150;
+  border: none;
+  position: relative;
+}
+
+.btn-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: #4a9878; /* your gold */
+  transition: width 0.3s ease;
+}
+
+/* underline on hover OR when the element has .active */
+.btn-underline:hover::after,
+.btn-underline.active::after {
+  width: 100%;
+}
