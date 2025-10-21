@@ -1,0 +1,32 @@
+/* src/components/CodeBlock.css */
+
+.code-shell {
+  position: relative;
+  max-width: 100%;
+  border-radius: 6px;
+  background: #fafafa;
+  /* The key: let the INSIDE scroll, never expand the layout */
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Keep the copy button in the corner, above the code */
+.code-copy-overlay {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+}
+
+/* Safety: make sure pre itself doesn't set a huge min-width */
+.code-shell pre {
+  margin: 0;
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+}
