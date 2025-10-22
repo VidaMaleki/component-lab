@@ -10,6 +10,7 @@ export default function Sidebar() {
                 borderRight: "1px solid #e5e7eb",
                 padding: "16px",
                 width: "220px",
+                flex: "0 0 220px", 
                 minHeight: "calc(100vh - 64px)",
             }}
         >

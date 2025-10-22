@@ -1,0 +1,292 @@
+/* src/components/Dropdowns/dropdownStyles.css */
+
+/* === LAYOUT === */
+.dd-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 100%;
+}
+.dd-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.dd-tab {
+  border: 1px solid #ddd;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+.dd-tab:hover {
+  background: #f6f7f9;
+}
+.dd-tab.is-active {
+  background: #344150;
+  color: #fff;
+  font-weight: 600;
+}
+
+.dd-preview {
+  position: relative;
+  z-index: 2;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 24px;
+  background: #fafafa;
+  display: block;
+  min-height: 140px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* Code area container (your CodeBlock also handles overflow inside) */
+.dd-code {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 12px;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  background: #fdfdfd;
+  padding: 16px;
+}
+
+/* === FIELD / LABEL === */
+.dd-field {
+  display: grid;
+  gap: 6px;
+}
+.dd-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+}
+
+/* === SIZING VARS === */
+.dd-demo {
+  --dd-control-width: 240px;
+}
+
+/* === NATIVE SELECT === */
+.dd-native {
+  width: var(--dd-control-width);
+  padding: 8px 10px;
+  border: 1px solid #dcdfe4;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+  color: #111;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.dd-native:hover {
+  border-color: #c0c4cc;
+}
+.dd-native:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.22);
+}
+
+/* === COMMON MENU WRAP / TRIGGER === */
+.dd-menu-wrap {
+  position: relative;
+  width: var(--dd-control-width);
+}
+.dd-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid #dcdfe4;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  color: #111;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+}
+.dd-trigger:hover {
+  border-color: #c0c4cc;
+  background: #f9fafb;
+}
+.dd-trigger:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.22);
+}
+.dd-caret {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* === DROPDOWN LIST (SINGLE SOURCE OF TRUTH) === */
+.dd-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  padding: 6px;
+  margin: 0;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-2px);
+  pointer-events: none;
+  transition: opacity 0.12s, transform 0.12s;
+  z-index: 1000;
+  max-height: 220px;
+  overflow: auto;
+}
+.dd-list.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.dd-item {
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.dd-item:hover,
+.dd-item[aria-selected="true"] {
+  background: #f6f7f9;
+}
+
+/* === MULTI SELECT EXTRAS === */
+.dd-menu-actions {
+  display: flex;
+  gap: 8px;
+  padding: 6px 6px 8px;
+  border-bottom: 1px dashed #e5e7eb;
+  margin-bottom: 4px;
+}
+.dd-chip {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.dd-item-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dd-item-check input {
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+}
+
+.dd-selected-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.dd-tag {
+  font-size: 12px;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+/* === SPLIT BUTTON === */
+.dd-split {
+  position: relative;
+  display: inline-flex;
+  vertical-align: top;
+}
+.dd-split-main {
+  padding: 8px 12px;
+  border: 1px solid #cbd5e1;
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  color: #111;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+}
+.dd-split-main:hover {
+  background: #f9fafb;
+  border-color: #c0c4cc;
+}
+.dd-split-main:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.22);
+}
+
+.dd-split-caret {
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 0 8px 8px 0;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+}
+.dd-split-caret:hover {
+  background: #f9fafb;
+  border-color: #c0c4cc;
+}
+.dd-split-caret:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.22);
+}
+
+.dd-split-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 180px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  padding: 6px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-2px);
+  pointer-events: none;
+  transition: opacity 0.12s, transform 0.12s;
+  z-index: 1000;
+  max-height: 220px;
+  overflow: auto;
+}
+.dd-split-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* a11y focus */
+button:focus {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}

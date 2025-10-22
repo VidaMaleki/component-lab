@@ -4,7 +4,7 @@ import React, { useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { CATEGORIES, componentsByCategory } from "../../content/registry";
 import type { GalleryItem } from "../../content/registry";
-import CodeBlock from "../../components/CopyButton";
+import CodeBlock from "../../components/CodeBlock";
 
 
 export default function CategoryPage() {
@@ -14,7 +14,7 @@ export default function CategoryPage() {
     const category = CATEGORIES.find(
         (c) => c.toLowerCase().replace(/\s+/g, "-") === slug
     );
-    
+
     const items = useMemo<GalleryItem[]>(() => {
         if (!category) return [];
         return componentsByCategory(category);
@@ -37,7 +37,6 @@ export default function CategoryPage() {
             <p style={{ opacity: 0.7, marginBottom: 20 }}>
                 Reusable {category.toLowerCase()} examples with live previews and copyable code snippets.
             </p>
-
             {items.length === 0 ? (
                 <div style={{ opacity: 0.6 }}>No components found in this category.</div>
             ) : (
@@ -62,12 +61,9 @@ export default function CategoryPage() {
                                 <h3 style={{ fontWeight: 600 }}>{it.title}</h3>
                                 <small style={{ opacity: 0.6 }}>{it.category}</small>
                             </header>
-
                             <p style={{ marginTop: 8, opacity: 0.8 }}>{it.description}</p>
-
                             {/* Preview area */}
                             <div style={{ marginTop: 10, marginBottom: 10 }}>{it.preview}</div>
-
                             {/* Only show HTML/CSS/code if demo isn’t self-managed */}
                             {!it.selfManagedCode && (
                                 <>

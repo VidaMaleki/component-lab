@@ -1,4 +1,3 @@
-// src/components/CopyButton.tsx
 import { useState } from "react";
 
 export default function CopyButton({ code }: { code: string }) {
@@ -19,7 +18,7 @@ export default function CopyButton({ code }: { code: string }) {
                     cursor: "pointer",
                 }}
             >
-                {ok ? "✅ Copied!" : "Copy Code"}
+                {ok ? "✅ Copied!" : "Copy"}
             </button>
         </>
     );

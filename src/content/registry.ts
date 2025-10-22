@@ -1,6 +1,6 @@
 import React from "react"; // for React.createElement types
 import ButtonDemo from "../components/Buttons/ButtonDemo";
-import DropdownDemo from "../components/Buttons/DropdownDemo";
+import DropdownDemo from "../components/DropDowns/DropdownDemo";
 import CopyButton from "../components/CopyButton";
 
 export const CATEGORIES = [
@@ -53,7 +53,7 @@ export const COMPONENTS: GalleryItem[] = [
   {
     id: "dropdowns-demo",
     title: "Dropdown Variants",
-    category: "Dropdowns", // ✅ should match your new category
+    category: "Dropdowns",
     tags: ["dropdown", "select", "menu"],
     description:
       "Native select, custom menu, split-button, and multi-select dropdown examples.",
