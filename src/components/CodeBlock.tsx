@@ -1,7 +1,7 @@
 import CopyButton from "./CopyButton";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
-import "./CodeBlock.css";
+import "./codeBlock.css";
 
 interface CodeBlockProps {
     title?: string;
