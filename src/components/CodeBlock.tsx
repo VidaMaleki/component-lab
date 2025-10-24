@@ -1,4 +1,3 @@
-import React from "react";
 import CopyButton from "./CopyButton";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";

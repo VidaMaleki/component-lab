@@ -1,4 +1,3 @@
-import React from "react";
 import "./formsStyles.css";
 
 export default function SimpleForm() {

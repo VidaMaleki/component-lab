@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./formsStyles.css";
 
 export default function MultiStepsForm() {

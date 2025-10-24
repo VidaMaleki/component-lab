@@ -1,4 +1,4 @@
-import React from "react"; // for React.createElement types
+import React from "react";
 import ButtonDemo from "../components/Buttons/ButtonDemo";
 import DropdownDemo from "../components/DropDowns/DropdownDemo";
 import FormsDemo from "../components/Forms/FormsDemo";
@@ -22,7 +22,7 @@ export type GalleryItem = {
   description: string;
   createdAt: string;
   preview: React.ReactNode;
-  code: string;
+  code?: string;
 
   html?: string;
   css?: string;

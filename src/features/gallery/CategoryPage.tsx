@@ -1,6 +1,4 @@
-// src/features/gallery/CategoryPage.tsx
-
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { CATEGORIES, componentsByCategory } from "../../content/registry";
 import type { GalleryItem } from "../../content/registry";
