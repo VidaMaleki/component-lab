@@ -1,6 +1,7 @@
 import React from "react"; // for React.createElement types
 import ButtonDemo from "../components/Buttons/ButtonDemo";
 import DropdownDemo from "../components/DropDowns/DropdownDemo";
+import FormsDemo from "../components/Forms/FormsDemo";
 import CopyButton from "../components/CopyButton";
 
 export const CATEGORIES = [
@@ -61,6 +62,16 @@ export const COMPONENTS: GalleryItem[] = [
     preview: React.createElement(DropdownDemo),
     selfManagedCode: true,
   },
+  {
+    id: "forms-demo",
+    title: "Form Elements",
+    category: "Forms",
+    tags: ["form", "input", "validation"],
+    description: "Styled input fields, checkboxes, radio buttons, and validation states.",
+    createdAt: "2025-10-01T12:00:00Z",
+    preview: React.createElement(FormsDemo),
+    selfManagedCode: true,
+  }
 ];
 
 export function componentsByCategory(category: (typeof CATEGORIES)[number]) {
