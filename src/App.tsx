@@ -3,7 +3,8 @@ import Navbar from "./components/Navbar/Navbar";
 import ComponentsPage from "./features/gallery/ComponentsPage";
 import IntroSection from "./features/gallery/IntroSection";
 import CategoryPage from "./features/gallery/CategoryPage";
-
+import AboutPage from "./features/about/AboutPage";
+import ResourcesPage from "./features/resources/ResourcesPage";
 
 export default function App() {
   return (
@@ -12,15 +13,16 @@ export default function App() {
       <main id="main" style={{ paddingTop: 8 }}>
         <Routes>
 
-          <Route path="/" element={<ComponentsPage />} />
+          <Route path="/" element={<Navigate to="/components" replace />} />
           <Route path="*" element={<Navigate to="/" />} />
           <Route path="/components" element={<ComponentsPage />}>
             <Route index element={<IntroSection />} />
             <Route path=":slug" element={<CategoryPage />} />
           </Route>
-          <Route path="/about" element={<div style={{ padding: 16 }}><h1>About Vida Lab</h1><p>Vida Lab is a collection of reusable UI components with live previews and copyable code snippets.</p></div>} />
+          <Route path="/about" element={<AboutPage portfolioUrl="https://vidamaleki.com" />} />
+          <Route path="/resources" element={<ResourcesPage />} />
         </Routes>
       </main>
     </Router>
   );
-}
+};

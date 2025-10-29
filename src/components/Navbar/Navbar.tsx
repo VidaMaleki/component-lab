@@ -6,6 +6,7 @@ export default function Navbar() {
 
     const links = [
         { to: "/components", label: "Components" },
+        { to: "/resources", label: "Resources" },
         { to: "/about", label: "About" },
     ];
 
