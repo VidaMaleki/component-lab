@@ -1,5 +1,5 @@
 import { useState, type ComponentType } from 'react';
-import { Search, Menu, X, Home, Square, FormInput, Navigation, CreditCard, Layout, Bell, Tag, User, Type, Palette, Layers, Box } from 'lucide-react';
+import { Search, Menu, X, Home, Square, FormInput, Navigation, CreditCard, Layout, Bell, Tag, User, Type, Palette, Layers, Box, Sparkles } from 'lucide-react';
 import { HomePage } from './components/HomePage';
 import { ButtonsSection } from './components/sections/ButtonsSection';
 import { FormsSection } from './components/sections/FormsSection';
@@ -15,6 +15,7 @@ import { IconsSection } from './components/sections/IconsSection';
 import { LayoutsSection } from './components/sections/LayoutsSection';
 import { ColorsSection } from './components/sections/ColorsSection';
 import { ElevationSection } from './components/sections/ElevationSection';
+import { AnimationsSection } from './components/sections/AnimationsSection';
 
 type Section = {
   id: string;
@@ -34,6 +35,7 @@ const sections: Section[] = [
   { id: 'alerts', label: 'Alerts & Toasts', icon: Bell, component: AlertsSection },
   { id: 'badges', label: 'Badges & Chips', icon: Tag, component: BadgesSection },
   { id: 'avatars', label: 'Avatars', icon: User, component: AvatarsSection },
+  { id: 'animations', label: 'Animations & Transitions', icon: Sparkles, component: AnimationsSection },
   { id: 'typography', label: 'Typography', icon: Type, component: TypographySection },
   { id: 'icons', label: 'Icons', icon: Layers, component: IconsSection },
   { id: 'layouts', label: 'Layouts', icon: Layout, component: LayoutsSection },
