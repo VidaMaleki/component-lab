@@ -1,16 +1,32 @@
 import { Search, Zap, Code, Palette, CheckCircle } from 'lucide-react';
+import { FaGithub } from "react-icons/fa";
 
-export function HomePage() {
+type HomePageProps = {
+    onNavigate: (id: string) => void;
+    searchQuery: string;
+    onSearchChange: (value: string) => void;
+    firstMatchId?: string;
+};
+
+export function HomePage({ onNavigate, searchQuery, onSearchChange, firstMatchId }: HomePageProps) {
     const categories = [
-        { name: 'Buttons', count: '15+', color: 'bg-blue-100 text-blue-700' },
-        { name: 'Form Elements', count: '20+', color: 'bg-green-100 text-green-700' },
-        { name: 'Navigation', count: '10+', color: 'bg-purple-100 text-purple-700' },
-        { name: 'Cards', count: '8+', color: 'bg-pink-100 text-pink-700' },
-        { name: 'Modals', count: '6+', color: 'bg-orange-100 text-orange-700' },
-        { name: 'Tables', count: '5+', color: 'bg-teal-100 text-teal-700' },
-        { name: 'Alerts', count: '4+', color: 'bg-red-100 text-red-700' },
-        { name: 'Badges', count: '10+', color: 'bg-indigo-100 text-indigo-700' },
+        { name: 'Buttons', id: 'buttons', count: '15+', color: 'bg-blue-100 text-blue-700' },
+        { name: 'Form Elements', id: 'forms', count: '20+', color: 'bg-green-100 text-green-700' },
+        { name: 'Navigation', id: 'navigation', count: '10+', color: 'bg-purple-100 text-purple-700' },
+        { name: 'Cards', id: 'cards', count: '8+', color: 'bg-pink-100 text-pink-700' },
+        { name: 'Modals', id: 'modals', count: '6+', color: 'bg-orange-100 text-orange-700' },
+        { name: 'Tables', id: 'tables', count: '5+', color: 'bg-teal-100 text-teal-700' },
+        { name: 'Alerts', id: 'alerts', count: '4+', color: 'bg-red-100 text-red-700' },
+        { name: 'Badges', id: 'badges', count: '10+', color: 'bg-indigo-100 text-indigo-700' },
+        { name: 'Carousels', id: 'carousels', count: '7+', color: 'bg-cyan-100 text-cyan-700' },
+        { name: 'Charts', id: 'charts', count: '6+', color: 'bg-emerald-100 text-emerald-700' },
+        { name: 'Rich Text', id: 'richtext', count: '2+', color: 'bg-violet-100 text-violet-700' },
+        { name: 'Skeleton Loaders', id: 'skeleton', count: '4+', color: 'bg-slate-100 text-slate-700' },
+        { name: 'Animations', id: 'animations', count: '8+', color: 'bg-yellow-100 text-yellow-700' },
+        { name: 'Micro-interactions', id: 'micro', count: '6+', color: 'bg-lime-100 text-lime-700' },
+        { name: '3D Interactions', id: '3d', count: '4+', color: 'bg-fuchsia-100 text-fuchsia-700' },
     ];
+
 
     const features = [
         {
@@ -50,12 +66,18 @@ export function HomePage() {
                     Copy, paste, and customize to build your next project faster.
                 </p>
                 <div className="flex items-center justify-center gap-4 pt-6">
-                    <button className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+                    <button onClick={() => onNavigate("buttons")} className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
                         Browse Components
                     </button>
-                    <button className="px-6 py-3 bg-white text-slate-700 border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors">
+                    <a
+                        href="https://github.com/VidaMaleki/component-lab"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-6 py-3 bg-white text-slate-700 border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors"
+                    >
+                        <FaGithub className="w-5 h-5" />
                         View on GitHub
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -65,6 +87,11 @@ export function HomePage() {
                     <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
                     <input
                         type="text"
+                        value={searchQuery}
+                        onChange={(e) => onSearchChange(e.target.value)}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter" && firstMatchId) onNavigate(firstMatchId);
+                        }}
                         placeholder="Search for components, variants, or patterns..."
                         className="w-full pl-12 pr-4 py-4 bg-white border border-slate-300 rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm"
                     />
@@ -94,6 +121,7 @@ export function HomePage() {
                     {categories.map((category) => (
                         <div
                             key={category.name}
+                            onClick={() => onNavigate(category.id)}
                             className="bg-white p-5 rounded-lg border border-slate-200 hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer group"
                         >
                             <div className="flex items-center justify-between">
