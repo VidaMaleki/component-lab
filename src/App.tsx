@@ -1,5 +1,5 @@
 import { useState, type ComponentType } from 'react';
-import { Search, Menu, X, Home, Square, FormInput, Navigation, CreditCard, Layout, Bell, Tag, User, Type, Palette, Layers, Box, Sparkles, Image, BarChart3, Command, Zap, FileText } from 'lucide-react';
+import { Search, Menu, X, Home, Square, FormInput, Navigation, CreditCard, Layout, Bell, Tag, User, Type, Palette, Layers, Box, Sparkles, Image, BarChart3, Command, Zap, FileText, Loader } from 'lucide-react';
 import { HomePage } from './components/HomePage';
 import { ButtonsSection } from './components/sections/ButtonsSection';
 import { FormsSection } from './components/sections/FormsSection';
@@ -21,6 +21,7 @@ import { ChartsSection } from './components/sections/ChartsSection';
 import { CommandPaletteSection } from './components/sections/CommandPaletteSection';
 import { MicroInteractionsSection } from './components/sections/MicroInteractionsSection';
 import { RichTextSection } from './components/sections/RichTextSection';
+import { SkeletonSection } from './components/sections/SkeletonSection';
 
 type Section = {
   id: string;
@@ -48,6 +49,7 @@ const sections: Section[] = [
   { id: 'typography', label: 'Typography', icon: Type, component: TypographySection },
   { id: 'richtext', label: 'Rich Text Editors', icon: FileText, component: RichTextSection },
   { id: 'icons', label: 'Icons', icon: Layers, component: IconsSection },
+  { id: 'skeleton', label: 'Skeleton Loaders', icon: Loader, component: SkeletonSection },
   { id: 'layouts', label: 'Layouts', icon: Layout, component: LayoutsSection },
   { id: 'colors', label: 'Colors', icon: Palette, component: ColorsSection },
   { id: 'elevation', label: 'Elevation', icon: Layers, component: ElevationSection },
