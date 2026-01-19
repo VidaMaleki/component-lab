@@ -1,5 +1,5 @@
 import { useState, type ComponentType } from 'react';
-import { Search, Menu, X, Home, Square, FormInput, Navigation, CreditCard, Layout, Bell, Tag, User, Type, Palette, Layers, Box, Sparkles, Image, BarChart3 } from 'lucide-react';
+import { Search, Menu, X, Home, Square, FormInput, Navigation, CreditCard, Layout, Bell, Tag, User, Type, Palette, Layers, Box, Sparkles, Image, BarChart3, Command } from 'lucide-react';
 import { HomePage } from './components/HomePage';
 import { ButtonsSection } from './components/sections/ButtonsSection';
 import { FormsSection } from './components/sections/FormsSection';
@@ -18,6 +18,8 @@ import { ElevationSection } from './components/sections/ElevationSection';
 import { AnimationsSection } from './components/sections/AnimationsSection';
 import { CarouselsSection } from './components/sections/CarouselsSection';
 import { ChartsSection } from './components/sections/ChartsSection';
+import { CommandPaletteSection } from './components/sections/CommandPaletteSection';
+
 
 type Section = {
   id: string;
@@ -40,6 +42,7 @@ const sections: Section[] = [
   { id: 'carousels', label: 'Carousels & Sliders', icon: Image, component: CarouselsSection },
   { id: 'animations', label: 'Animations & Transitions', icon: Sparkles, component: AnimationsSection },
   { id: 'charts', label: 'Interactive Charts', icon: BarChart3, component: ChartsSection },
+  { id: 'command', label: 'Command Palettes', icon: Command, component: CommandPaletteSection },
   { id: 'typography', label: 'Typography', icon: Type, component: TypographySection },
   { id: 'icons', label: 'Icons', icon: Layers, component: IconsSection },
   { id: 'layouts', label: 'Layouts', icon: Layout, component: LayoutsSection },
