@@ -1,7 +1,7 @@
 import { ComponentShowcase } from '../ComponentShowcase';
 import { Plus, Download, Heart, Send, Settings, Trash2, Edit } from 'lucide-react';
 
-export function ButtonsSection() {
+export default function ButtonsSection() {
     return (
         <div className="space-y-8">
             <div>

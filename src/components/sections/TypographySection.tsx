@@ -1,6 +1,6 @@
 import { ComponentShowcase } from '../ComponentShowcase';
 
-export function TypographySection() {
+export default function TypographySection() {
     return (
         <div className="space-y-8">
             <div>

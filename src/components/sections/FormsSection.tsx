@@ -2,7 +2,7 @@ import { ComponentShowcase } from '../ComponentShowcase';
 import { Eye, EyeOff, Search } from 'lucide-react';
 import { useState } from 'react';
 
-export function FormsSection() {
+export default function FormsSection() {
     const [showPassword, setShowPassword] = useState(false);
     const [switchValue, setSwitchValue] = useState(false);
     const [sliderValue, setSliderValue] = useState(50);

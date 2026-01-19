@@ -3,7 +3,7 @@ import { Heart, Star, ThumbsUp, Bell, Bookmark, Send, Volume2, VolumeX, Eye, Eye
 import { useState } from 'react';
 import { motion } from 'motion/react';
 
-export function MicroInteractionsSection() {
+export default function MicroInteractionsSection() {
     const [liked, setLiked] = useState(false);
     const [bookmarked, setBookmarked] = useState(false);
     const [rating, setRating] = useState(0);

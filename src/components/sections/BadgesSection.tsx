@@ -1,7 +1,7 @@
 import { ComponentShowcase } from '../ComponentShowcase';
 import { X } from 'lucide-react';
 
-export function BadgesSection() {
+export default function BadgesSection() {
     return (
         <div className="space-y-8">
             <div>

@@ -2,7 +2,7 @@ import { ComponentShowcase } from '../ComponentShowcase';
 import { Home, Settings, User, Bell, Menu, ChevronRight, ChevronLeft, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 
-export function NavigationSection() {
+export default function NavigationSection() {
     const [activePage, setActivePage] = useState(1);
 
     return (

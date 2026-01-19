@@ -1,7 +1,7 @@
 import { ComponentShowcase } from '../ComponentShowcase';
 import { LineChart, Line, BarChart, Bar, AreaChart, Area, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-export function ChartsSection() {
+export default function ChartsSection() {
     const lineData = [
         { name: 'Jan', users: 400, revenue: 2400 },
         { name: 'Feb', users: 300, revenue: 1398 },

@@ -12,7 +12,7 @@ type Row = {
 
 type SortableColumn = 'name' | 'email' | 'role';
 
-export function TablesSection() {
+export default function TablesSection() {
     const [sortColumn, setSortColumn] = useState<SortableColumn | null>(null);
     const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
     const [searchQuery, setSearchQuery] = useState('');

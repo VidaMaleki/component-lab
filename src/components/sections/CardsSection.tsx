@@ -1,7 +1,7 @@
 import { ComponentShowcase } from '../ComponentShowcase';
 import { ShoppingCart, Heart, Star, TrendingUp, Users, DollarSign, Activity } from 'lucide-react';
 
-export function CardsSection() {
+export default function CardsSection() {
     return (
         <div className="space-y-8">
             <div>

@@ -1,6 +1,6 @@
 import { ComponentShowcase } from '../ComponentShowcase';
 
-export function ElevationSection() {
+export default function ElevationSection() {
     return (
         <div className="space-y-8">
             <div>

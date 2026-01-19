@@ -1,7 +1,7 @@
 import { ComponentShowcase } from '../ComponentShowcase';
 import { CheckCircle, XCircle, AlertTriangle, Info, X } from 'lucide-react';
 
-export function AlertsSection() {
+export default function AlertsSection() {
     return (
         <div className="space-y-8">
             <div>

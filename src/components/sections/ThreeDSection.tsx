@@ -2,7 +2,7 @@ import { ComponentShowcase } from '../ComponentShowcase';
 import { useState, useRef } from 'react';
 import { motion } from 'motion/react';
 
-export function ThreeDSection() {
+export default function ThreeDSection() {
     const [rotateX, setRotateX] = useState(0);
     const [rotateY, setRotateY] = useState(0);
     const cardRef = useRef<HTMLDivElement>(null);

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, Bell, ShoppingCart, Star, Zap } from 'lucide-react';
 import { useState } from 'react';
 
-export function AnimationsSection() {
+export default function AnimationsSection() {
     const [isOpen, setIsOpen] = useState(false);
     const [count, setCount] = useState(0);
 

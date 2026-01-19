@@ -2,7 +2,7 @@ import { ComponentShowcase } from '../ComponentShowcase';
 import { X, AlertTriangle, Check, Info } from 'lucide-react';
 import { useState } from 'react';
 
-export function ModalsSection() {
+export default function ModalsSection() {
     const [showConfirm, setShowConfirm] = useState(false);
     const [showForm, setShowForm] = useState(false);
     const [showDrawer, setShowDrawer] = useState(false);

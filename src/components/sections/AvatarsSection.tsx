@@ -1,7 +1,7 @@
 import { ComponentShowcase } from '../ComponentShowcase';
 import { User } from 'lucide-react';
 
-export function AvatarsSection() {
+export default function AvatarsSection() {
     return (
         <div className="space-y-8">
             <div>

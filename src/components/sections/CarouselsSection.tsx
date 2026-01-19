@@ -3,7 +3,7 @@ import { ComponentShowcase } from "../ComponentShowcase";
 import { ChevronLeft, ChevronRight, ShoppingCart, Star } from "lucide-react";
 import { carouselsCodeSnippets, slidesData, productsData, testimonialsData, centerCardsData } from "../../../assets/carousels"
 
-export function CarouselsSection() {
+export default function CarouselsSection() {
     // each carousel has its own index
     const [basicSlide, setBasicSlide] = useState(0);
     const [fadeSlide, setFadeSlide] = useState(0);

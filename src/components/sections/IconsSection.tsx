@@ -8,7 +8,7 @@ import {
     BarChart, PieChart, Zap, Sun, Moon, Camera, Mic, Video, Play, Pause
 } from 'lucide-react';
 
-export function IconsSection() {
+export default function IconsSection() {
     const iconGroups = [
         {
             title: 'Common',

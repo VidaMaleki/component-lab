@@ -2,7 +2,7 @@ import { ComponentShowcase } from '../ComponentShowcase';
 import { Search, Command, Settings, User, Home, FileText, Mail, Calendar, Hash, ChevronRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
-export function CommandPaletteSection() {
+export default function CommandPaletteSection() {
     const [isOpen, setIsOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [isOpen2, setIsOpen2] = useState(false);

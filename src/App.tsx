@@ -1,4 +1,4 @@
-import { useMemo, useState, type ComponentType } from "react";
+import { lazy, Suspense, useMemo, useState, type ComponentType } from "react";
 import {
   Search,
   Menu,
@@ -27,28 +27,28 @@ import {
 } from "lucide-react";
 
 import { HomePage } from "./components/HomePage";
-import { ButtonsSection } from "./components/sections/ButtonsSection";
-import { FormsSection } from "./components/sections/FormsSection";
-import { NavigationSection } from "./components/sections/NavigationSection";
-import { CardsSection } from "./components/sections/CardsSection";
-import { ModalsSection } from "./components/sections/ModalsSection";
-import { TablesSection } from "./components/sections/TablesSection";
-import { AlertsSection } from "./components/sections/AlertsSection";
-import { BadgesSection } from "./components/sections/BadgesSection";
-import { AvatarsSection } from "./components/sections/AvatarsSection";
-import { TypographySection } from "./components/sections/TypographySection";
-import { IconsSection } from "./components/sections/IconsSection";
-import { LayoutsSection } from "./components/sections/LayoutsSection";
-import { ColorsSection } from "./components/sections/ColorsSection";
-import { ElevationSection } from "./components/sections/ElevationSection";
-import { AnimationsSection } from "./components/sections/AnimationsSection";
-import { CarouselsSection } from "./components/sections/CarouselsSection";
-import { ChartsSection } from "./components/sections/ChartsSection";
-import { CommandPaletteSection } from "./components/sections/CommandPaletteSection";
-import { MicroInteractionsSection } from "./components/sections/MicroInteractionsSection";
-import { RichTextSection } from "./components/sections/RichTextSection";
-import { SkeletonSection } from "./components/sections/SkeletonSection";
-import { ThreeDSection } from "./components/sections/ThreeDSection";
+const ButtonsSection = lazy(() => import("./components/sections/ButtonsSection"));
+const FormsSection = lazy(() => import("./components/sections/FormsSection"));
+const NavigationSection = lazy(() => import("./components/sections/NavigationSection"));
+const CardsSection = lazy(() => import("./components/sections/CardsSection"));
+const ModalsSection = lazy(() => import("./components/sections/ModalsSection"));
+const TablesSection = lazy(() => import("./components/sections/TablesSection"));
+const AlertsSection = lazy(() => import("./components/sections/AlertsSection"));
+const BadgesSection= lazy(() => import("./components/sections/BadgesSection"));
+const AvatarsSection = lazy(() => import("./components/sections/AvatarsSection"));
+const TypographySection = lazy(() => import("./components/sections/TypographySection"));
+const IconsSection = lazy(() => import("./components/sections/IconsSection"));
+const LayoutsSection = lazy(() => import("./components/sections/LayoutsSection"));
+const ColorsSection = lazy(() => import("./components/sections/ColorsSection"));
+const ElevationSection = lazy(() => import("./components/sections/ElevationSection"));
+const AnimationsSection = lazy(() => import("./components/sections/AnimationsSection"));
+const CarouselsSection = lazy(() => import("./components/sections/CarouselsSection"));
+const ChartsSection = lazy(() => import("./components/sections/ChartsSection"));
+const CommandPaletteSection = lazy(() => import("./components/sections/CommandPaletteSection"));
+const MicroInteractionsSection = lazy(() => import("./components/sections/MicroInteractionsSection"));
+const RichTextSection = lazy(() => import("./components/sections/RichTextSection"));
+const SkeletonSection = lazy(() => import("./components/sections/SkeletonSection"));
+const ThreeDSection = lazy(() => import("./components/sections/ThreeDSection"));
 
 type Section = {
   id: string;
@@ -226,6 +226,7 @@ export default function App() {
         {/* Main Content */}
         <main className="flex-1 min-h-[calc(100vh-73px)] overflow-y-auto">
           <div className="max-w-7xl mx-auto p-6 md:p-8 lg:p-12">
+            <Suspense fallback={<div className="text-slate-600">Loading…</div>}>
             {activeSection === "home" ? (
               <HomePage onNavigate={(id: string) => setActiveSection(id)}
                 searchQuery={searchQuery}
@@ -235,6 +236,7 @@ export default function App() {
             ) : (
               ActiveComponent && <ActiveComponent />
             )}
+            </Suspense>
           </div>
         </main>
       </div>

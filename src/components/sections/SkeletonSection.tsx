@@ -1,7 +1,7 @@
 import { ComponentShowcase } from '../ComponentShowcase';
 import { useState } from 'react';
 
-export function SkeletonSection() {
+export default function SkeletonSection() {
     const [loading, setLoading] = useState(true);
 
     return (

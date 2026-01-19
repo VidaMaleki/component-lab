@@ -26,7 +26,7 @@ type Cmd =
     | "justifyRight"
     | "formatBlock";
 
-export function RichTextSection() {
+export default function RichTextSection() {
     const editorRef = useRef<HTMLDivElement | null>(null);
 
     // Store HTML so your preview stays consistent and no “unused” state

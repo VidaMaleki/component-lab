@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import * as RechartsPrimitive from "recharts";
 
@@ -8,22 +6,24 @@ import { cn } from "./utils";
 type RechartsTooltipPayloadItem = {
     name?: string;
     dataKey?: string | number;
-    value?: number | string;
+    value?: React.ReactNode;
     color?: string;
-    payload?: any;
+    payload?: unknown;
+    fill?: string;
+
 };
 
 type ChartTooltipContentProps = React.HTMLAttributes<HTMLDivElement> & {
     active?: boolean;
     payload?: RechartsTooltipPayloadItem[];
-    label?: any;
+    label?: string;
     labelFormatter?: (value: any, payload: RechartsTooltipPayloadItem[]) => React.ReactNode;
     formatter?: (
-        value: any,
-        name: any,
+        value: React.ReactNode,
+        name: string,
         item: RechartsTooltipPayloadItem,
         index: number,
-        payload: any
+        payload: unknown
     ) => React.ReactNode;
     indicator?: "line" | "dot" | "dashed";
     hideLabel?: boolean;
@@ -145,6 +145,14 @@ ${colorConfig
 
 const ChartTooltip = RechartsPrimitive.Tooltip;
 
+function getFill(payload: unknown): string | undefined {
+  if (payload && typeof payload === "object" && "fill" in payload) {
+    const v = (payload as { fill?: unknown }).fill;
+    return typeof v === "string" ? v : undefined;
+  }
+  return undefined;
+}
+
 
 function ChartTooltipContent({
     active,
@@ -217,7 +225,7 @@ function ChartTooltipContent({
                 {payload.map((item: RechartsTooltipPayloadItem, index: number) => {
                     const key = `${nameKey || item.name || item.dataKey || "value"}`;
                     const itemConfig = getPayloadConfigFromPayload(config, item, key);
-                    const indicatorColor = color || item.payload?.fill || item.color;
+                    const indicatorColor = color || getFill(item.payload) || item.color;
 
                     return (
                         <div
@@ -339,7 +347,7 @@ function ChartLegendContent({
 // Helper to extract item config from a payload.
 function getPayloadConfigFromPayload(
     config: ChartConfig,
-    payload: any,
+    payload: unknown,
     key: string,
 ) {
     if (typeof payload !== "object" || payload === null) {

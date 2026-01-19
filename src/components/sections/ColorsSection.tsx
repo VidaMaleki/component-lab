@@ -1,6 +1,6 @@
 import { ComponentShowcase } from '../ComponentShowcase';
 
-export function ColorsSection() {
+export default function ColorsSection() {
     const colorPalettes = [
         {
             name: 'Slate',
