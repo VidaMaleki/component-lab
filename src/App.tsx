@@ -1,5 +1,5 @@
 import { useState, type ComponentType } from 'react';
-import { Search, Menu, X, Home, Square, FormInput, Navigation, CreditCard, Layout, Bell, Tag, User, Type, Palette, Layers, Box, Sparkles, Image, BarChart3, Command, Zap } from 'lucide-react';
+import { Search, Menu, X, Home, Square, FormInput, Navigation, CreditCard, Layout, Bell, Tag, User, Type, Palette, Layers, Box, Sparkles, Image, BarChart3, Command, Zap, FileText } from 'lucide-react';
 import { HomePage } from './components/HomePage';
 import { ButtonsSection } from './components/sections/ButtonsSection';
 import { FormsSection } from './components/sections/FormsSection';
@@ -20,7 +20,7 @@ import { CarouselsSection } from './components/sections/CarouselsSection';
 import { ChartsSection } from './components/sections/ChartsSection';
 import { CommandPaletteSection } from './components/sections/CommandPaletteSection';
 import { MicroInteractionsSection } from './components/sections/MicroInteractionsSection';
-
+import { RichTextSection } from './components/sections/RichTextSection';
 
 type Section = {
   id: string;
@@ -46,6 +46,7 @@ const sections: Section[] = [
   { id: 'command', label: 'Command Palettes', icon: Command, component: CommandPaletteSection },
   { id: 'micro', label: 'Micro-interactions', icon: Zap, component: MicroInteractionsSection },
   { id: 'typography', label: 'Typography', icon: Type, component: TypographySection },
+  { id: 'richtext', label: 'Rich Text Editors', icon: FileText, component: RichTextSection },
   { id: 'icons', label: 'Icons', icon: Layers, component: IconsSection },
   { id: 'layouts', label: 'Layouts', icon: Layout, component: LayoutsSection },
   { id: 'colors', label: 'Colors', icon: Palette, component: ColorsSection },
@@ -129,8 +130,8 @@ export default function App() {
                     setSidebarOpen(false);
                   }}
                   className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${activeSection === section.id
-                      ? 'bg-indigo-50 text-indigo-600'
-                      : 'text-slate-700 hover:bg-slate-100'
+                    ? 'bg-indigo-50 text-indigo-600'
+                    : 'text-slate-700 hover:bg-slate-100'
                     }`}
                 >
                   <Icon className="w-4 h-4" />
