@@ -1,73 +1,159 @@
-# React + TypeScript + Vite
+# 🎨 Component Lab
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern open-source **React + Tailwind CSS Design System** with beautiful, production-ready UI components.
 
-Currently, two official plugins are available:
+Component Lab is a growing library of reusable UI components, patterns, and interactions designed to help developers build faster and more consistently.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- ⚡ 100+ reusable UI components  
+- 🎯 Built with **React, TypeScript, and Tailwind CSS**  
+- 📋 Copy & paste friendly code snippets  
+- 🎨 Fully customizable and theme-ready  
+- 🧩 Includes advanced patterns (carousels, charts, micro-interactions, 3D UI)  
+- 🛠 Production-ready and accessible  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Demo
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+🔗 Live Demo: [https://component-design-system.vercel.app](https://component-design-system.vercel.app/)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📦 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/VidaMaleki/component-lab.git
+cd component-lab
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+```bash
+npm run build
+```
+## 🧭 Project Structure
+```bash
+src/
+ ├─ components/
+ │   ├─ ui/                # Base UI components
+ │   └─ sections/          # Component showcase sections
+ ├─ HomePage.tsx
+ ├─ App.tsx
+ └─ main.tsx
+```
+
+## 🧩 Available Categories
+
+* Foundations (Colors, Typography, Icons, Layouts, Elevation)
+
+* Buttons
+
+* Forms
+
+* Navigation
+
+* Cards
+
+* Modals & Overlays
+
+* Tables
+
+* Alerts & Badges
+
+* Avatars
+
+* Carousels & Sliders
+
+* Charts
+
+* Rich Text Editors
+
+* Skeleton Loaders
+
+* Animations & Transitions
+
+* Micro-interactions
+
+* 3D Interactions
+
+## 🤝 Contributing
+
+Contributions are welcome! 🎉
+
+If you'd like to improve Component Lab:
+
+1- Fork the repository
+
+2- Create a new branch
+```bash
+git checkout -b feature/your-feature-name
+```
+
+3- Make your changes
+
+4- Commit and push
+
+5- Open a Pull Request
+
+Please make sure your code follows the existing style and is well documented.
+
+## 📝 License
+
+This project is licensed under the MIT License.
+
+You are free to:
+
+* Use
+
+* Copy
+
+* Modify
+
+* Publish
+
+* Distribute
+
+* Sell
+
+As long as you include the original copyright.
+
+See the full license in the LICENSE
+ file.
+
+## 👩‍💻 Author
+
+Vida Ghorbannezhad Maleki
+Software Engineer
+
+* GitHub: https://github.com/VidaMaleki
+
+* LinkedIn: (add your LinkedIn link here)
+
+## ⭐ Support
+
+If you like this project:
+
+* Give it a ⭐ on GitHub
+
+* Share it with others
+
+* Contribute new components
+
+It really helps the project grow 💙
