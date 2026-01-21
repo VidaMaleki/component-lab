@@ -140,11 +140,12 @@ See the full license in the LICENSE
 ## 👩‍💻 Author
 
 Vida Ghorbannezhad Maleki
+
 Software Engineer
 
-* GitHub: https://github.com/VidaMaleki
+* [GitHub](https://github.com/VidaMaleki)
 
-* LinkedIn: (add your LinkedIn link here)
+* [LinkedIn](https://www.linkedin.com/in/vida-ghorbannezhad-maleki-4082a4197/)
 
 ## ⭐ Support
 
