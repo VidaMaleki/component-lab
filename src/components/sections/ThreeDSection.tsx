@@ -1,11 +1,36 @@
 import { ComponentShowcase } from '../ComponentShowcase';
 import { useState, useRef } from 'react';
-import { motion } from 'motion/react';
+import {
+    motion,
+    useScroll,
+    useSpring,
+} from "motion/react"
+import ParallaxCard from './ParallaxCard';
+
+const cubeData: { label: string; cls: string; t: string }[] = [
+    { label: "Front", cls: "bg-indigo-500/90 border-indigo-300", t: "translateZ(96px)" },
+    { label: "Back", cls: "bg-purple-500/90 border-purple-300", t: "rotateY(180deg) translateZ(96px)" },
+    { label: "Right", cls: "bg-pink-500/90 border-pink-300", t: "rotateY(90deg) translateZ(96px)" },
+    { label: "Left", cls: "bg-blue-500/90 border-blue-300", t: "rotateY(-90deg) translateZ(96px)" },
+    { label: "Top", cls: "bg-cyan-500/90 border-cyan-300", t: "rotateX(90deg) translateZ(96px)" },
+    { label: "Bottom", cls: "bg-teal-500/90 border-teal-300", t: "rotateX(-90deg) translateZ(96px)" },
+]
 
 export default function ThreeDSection() {
     const [rotateX, setRotateX] = useState(0);
     const [rotateY, setRotateY] = useState(0);
     const cardRef = useRef<HTMLDivElement>(null);
+    const parallaxContainerRef = useRef<HTMLDivElement>(null);
+
+    const { scrollYProgress: innerScrollProgress } = useScroll({
+        container: parallaxContainerRef,
+    });
+
+    const scaleX = useSpring(innerScrollProgress, {
+        stiffness: 120,
+        damping: 30,
+        restDelta: 0.001,
+    });
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         if (!cardRef.current) return;
@@ -258,51 +283,74 @@ function FlipCard() {
                 title="Floating 3D Elements"
                 description="Elements that float in 3D space"
                 preview={
-                    <div className="relative h-96 bg-gradient-to-br from-slate-900 to-slate-700 rounded-2xl overflow-hidden">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            {[
-                                { delay: 0, x: -100, y: -50 },
-                                { delay: 0.5, x: 100, y: -30 },
-                                { delay: 1, x: -80, y: 50 },
-                                { delay: 1.5, x: 120, y: 40 },
-                            ].map((item, index) => (
-                                <motion.div
-                                    key={index}
-                                    animate={{
-                                        y: [item.y, item.y - 20, item.y],
-                                        rotateX: [0, 360],
-                                        rotateY: [0, 360],
-                                    }}
-                                    transition={{
-                                        duration: 4,
-                                        delay: item.delay,
-                                        repeat: Infinity,
-                                        ease: 'easeInOut',
-                                    }}
-                                    className="absolute w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl"
-                                    style={{
-                                        left: `calc(50% + ${item.x}px)`,
-                                        transform: 'perspective(1000px)',
-                                        boxShadow: '0 20px 40px rgba(99, 102, 241, 0.3)',
-                                    }}
-                                />
-                            ))}
-                        </div>
+                    <div
+                        className="relative h-96 w-full  rounded-2xl overflow-hidden"
+                        style={{
+                            background: "rgb(15, 23, 42)",
+                            perspective: "1000px",
+                            transformStyle: "preserve-3d",
+                        }}
+                    >
+                        {[
+                            { delay: 0, x: -100, y: -50 },
+                            { delay: 0.5, x: 100, y: -30 },
+                            { delay: 1, x: -80, y: 50 },
+                            { delay: 1.5, x: 120, y: 40 },
+                        ].map((item, index) => (
+                            <motion.div
+                                key={index}
+                                className="absolute w-20 h-20 rounded-xl"
+                                style={{
+                                    left: `calc(50% + ${item.x}px)`,
+                                    top: `calc(50% + ${item.y}px)`,
+                                    // IMPORTANT: position via translate so transforms don’t fight layout
+                                    transform: `translate(calc(-50% + ${item.x}px), calc(-50% + ${item.y}px)) translateZ(60px)`,
+                                    backgroundImage: "linear-gradient(135deg, #6366f1, #a855f7)",
+                                    boxShadow: "0 20px 40px rgba(99,102,241,0.35)",
+                                    backfaceVisibility: "hidden",
+                                }}
+                                animate={{
+                                    y: [item.y, item.y - 20, item.y],
+                                    rotateX: [0, 360],
+                                    rotateY: [0, 360],
+                                }}
+                                transition={{
+                                    duration: 4,
+                                    delay: item.delay,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                }}
+                            />
+                        ))}
                     </div>
                 }
-                code={`import { motion } from 'motion/react';
+                code={`
+import { motion } from "motion/react";
 
 function FloatingElements() {
+  const items = [
+    { delay: 0, x: -100, y: -50 },
+    { delay: 0.5, x: 100, y: -30 },
+    { delay: 1, x: -80, y: 50 },
+  ];
+
   return (
-    <div className="relative h-96 bg-gradient-to-br from-slate-900 to-slate-700 rounded-2xl">
-      {[
-        { delay: 0, x: -100, y: -50 },
-        { delay: 0.5, x: 100, y: -30 },
-      ].map((item, index) => (
+    <div
+      className="relative h-96 w-full rounded-2xl overflow-hidden"
+      style={{ perspective: "1000px", background: "#0f172a" }}
+    >
+      {items.map((item, index) => (
         <motion.div
           key={index}
+          className="absolute w-20 h-20 rounded-xl"
+          style={{
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%) translateZ(60px)",
+            background: "linear-gradient(135deg, #6366f1, #a855f7)",
+          }}
           animate={{
-            y: [item.y, item.y - 20, item.y],
+            y: [0, -20, 0],
             rotateX: [0, 360],
             rotateY: [0, 360],
           }}
@@ -310,11 +358,7 @@ function FloatingElements() {
             duration: 4,
             delay: item.delay,
             repeat: Infinity,
-          }}
-          className="absolute w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl"
-          style={{
-            left: \`calc(50% + \${item.x}px)\`,
-            transform: 'perspective(1000px)',
+            ease: "easeInOut",
           }}
         />
       ))}
@@ -322,151 +366,160 @@ function FloatingElements() {
   );
 }`}
             />
-
             {/* Parallax Layers */}
             <ComponentShowcase
                 title="Parallax 3D Layers"
-                description="Layered elements with depth on scroll"
+                description="Layered elements with depth on hover"
                 preview={
-                    <div
-                        className="relative h-96 bg-gradient-to-b from-indigo-900 via-purple-900 to-pink-900 rounded-2xl overflow-hidden"
-                        style={{ perspective: '1000px' }}
-                    >
-                        <motion.div
-                            whileHover={{ z: 100 }}
-                            className="absolute inset-0 flex items-center justify-center"
-                            style={{ transform: 'translateZ(-100px) scale(1.1)' }}
+                    <div className="w-full">
+                        {/* Scrollable frame */}
+                        <div
+                            ref={parallaxContainerRef}
+                            className="relative h-96 w-full overflow-y-auto rounded-2xl"
+                            style={{
+                                background: "linear-gradient(to bottom, #0b1020, #111827)",
+                            }}
                         >
-                            <div className="text-9xl opacity-10">🌟</div>
-                        </motion.div>
-                        <motion.div
-                            whileHover={{ z: 50 }}
-                            className="absolute inset-0 flex items-center justify-center"
-                            style={{ transform: 'translateZ(-50px) scale(1.05)' }}
-                        >
-                            <div className="text-7xl opacity-20">✨</div>
-                        </motion.div>
-                        <motion.div
-                            whileHover={{ scale: 1.1 }}
-                            className="absolute inset-0 flex items-center justify-center"
-                            style={{ transform: 'translateZ(0px)' }}
-                        >
-                            <div className="text-center text-white">
-                                <div className="text-5xl mb-4">3D Parallax</div>
-                                <p className="text-white/80">Hover to see depth</p>
+                            {/* sticky progress bar (stays inside frame) */}
+                            <div className="sticky top-0 z-10 p-3">
+                                <div className="h-2 w-full rounded bg-white/10 overflow-hidden">
+                                    <motion.div
+                                        className="h-full origin-left"
+                                        style={{
+                                            scaleX,
+                                            backgroundImage: "linear-gradient(90deg, #6366f1, #a855f7)",
+                                        }}
+                                    />
+                                </div>
                             </div>
-                        </motion.div>
+
+                            <div className="px-4 pb-6 space-y-6">
+                                <div className="pt-2 text-white/80 text-sm">
+                                    Scroll inside this box 👇
+                                </div>
+
+                                {[1, 2, 3, 4, 5].map((i) => (
+                                    <ParallaxCard key={i} index={i} containerRef={parallaxContainerRef} />
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 }
-                code={`import { motion } from 'motion/react';
+                code={`
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
+
+function ParallaxCard() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref });
+  const y = useTransform(scrollYProgress, [0, 1], [80, -80]);
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ y }}
+      className="h-40 rounded-xl flex items-center justify-center text-white text-3xl"
+      style={{
+        background: "linear-gradient(135deg, #6366f1, #a855f7)",
+      }}
+    >
+      Parallax Layer
+    </motion.div>
+  );
+}
 
 function ParallaxLayers() {
   return (
-    <div
-      className="relative h-96 bg-gradient-to-b from-indigo-900 to-pink-900 rounded-2xl"
-      style={{ perspective: '1000px' }}
-    >
-      <motion.div
-        whileHover={{ z: 100 }}
-        className="absolute inset-0 flex items-center justify-center"
-        style={{ transform: 'translateZ(-100px) scale(1.1)' }}
-      >
-        <div className="text-9xl opacity-10">🌟</div>
-      </motion.div>
-      <motion.div
-        whileHover={{ scale: 1.1 }}
-        className="absolute inset-0 flex items-center justify-center"
-      >
-        <div className="text-5xl">3D Parallax</div>
-      </motion.div>
+    <div className="h-96 overflow-y-auto space-y-12 p-6 rounded-2xl bg-slate-900">
+      <ParallaxCard />
+      <ParallaxCard />
+      <ParallaxCard />
     </div>
   );
 }`}
             />
-
             {/* Cube */}
             <ComponentShowcase
                 title="Rotating 3D Cube"
                 description="Animated 3D cube with CSS transforms"
                 preview={
-                    <div className="flex justify-center items-center py-16">
+                    <div
+                        className="w-full flex justify-center items-center py-16"
+                        style={{
+                            //Prevent compositor bleed into page
+                            isolation: "isolate",
+                            contain: "layout paint",
+                            overflow: "hidden",
+                        }}
+                    >
                         <div className="w-48 h-48" style={{ perspective: '800px' }}>
                             <motion.div
                                 animate={{ rotateX: 360, rotateY: 360 }}
-                                transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+                                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
                                 className="w-full h-full relative"
-                                style={{ transformStyle: 'preserve-3d' }}
+                                style={{
+                                    transformStyle: "preserve-3d",
+                                    willChange: "transform",
+                                    //Forces a clean composited layer
+                                    transform: "translateZ(0)",
+                                }}
                             >
-                                {/* Front */}
-                                <div
-                                    className="absolute inset-0 bg-indigo-500/90 border-2 border-indigo-300 flex items-center justify-center text-white"
-                                    style={{ transform: 'translateZ(96px)' }}
-                                >
-                                    Front
-                                </div>
-                                {/* Back */}
-                                <div
-                                    className="absolute inset-0 bg-purple-500/90 border-2 border-purple-300 flex items-center justify-center text-white"
-                                    style={{ transform: 'rotateY(180deg) translateZ(96px)' }}
-                                >
-                                    Back
-                                </div>
-                                {/* Right */}
-                                <div
-                                    className="absolute inset-0 bg-pink-500/90 border-2 border-pink-300 flex items-center justify-center text-white"
-                                    style={{ transform: 'rotateY(90deg) translateZ(96px)' }}
-                                >
-                                    Right
-                                </div>
-                                {/* Left */}
-                                <div
-                                    className="absolute inset-0 bg-blue-500/90 border-2 border-blue-300 flex items-center justify-center text-white"
-                                    style={{ transform: 'rotateY(-90deg) translateZ(96px)' }}
-                                >
-                                    Left
-                                </div>
-                                {/* Top */}
-                                <div
-                                    className="absolute inset-0 bg-cyan-500/90 border-2 border-cyan-300 flex items-center justify-center text-white"
-                                    style={{ transform: 'rotateX(90deg) translateZ(96px)' }}
-                                >
-                                    Top
-                                </div>
-                                {/* Bottom */}
-                                <div
-                                    className="absolute inset-0 bg-teal-500/90 border-2 border-teal-300 flex items-center justify-center text-white"
-                                    style={{ transform: 'rotateX(-90deg) translateZ(96px)' }}
-                                >
-                                    Bottom
-                                </div>
+                                {cubeData.map((f) => (
+                                    <div
+                                        key={f.label}
+                                        className={`absolute inset-0 border-2 flex items-center justify-center text-white ${f.cls}`}
+                                        style={{
+                                            transform: f.t,
+                                            backfaceVisibility: "hidden",
+                                            WebkitBackfaceVisibility: "hidden",
+                                        }}
+                                    >
+                                        {f.label}
+                                    </div>
+                                ))}
                             </motion.div>
                         </div>
                     </div>
                 }
-                code={`import { motion } from 'motion/react';
+                code={`
+import { motion } from "motion/react";
 
 function ThreeDCube() {
   return (
-    <div className="w-48 h-48" style={{ perspective: '800px' }}>
+    <div className="w-48 h-48" style={{ perspective: "800px" }}>
       <motion.div
         animate={{ rotateX: 360, rotateY: 360 }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
         className="w-full h-full relative"
-        style={{ transformStyle: 'preserve-3d' }}
+        style={{ transformStyle: "preserve-3d" }}
       >
         <div
-          className="absolute inset-0 bg-indigo-500/90 border-2"
-          style={{ transform: 'translateZ(96px)' }}
+          className="absolute inset-0 bg-indigo-500/90 border-2 flex items-center justify-center text-white"
+          style={{ transform: "translateZ(96px)" }}
         >
           Front
         </div>
+
         <div
-          className="absolute inset-0 bg-purple-500/90 border-2"
-          style={{ transform: 'rotateY(180deg) translateZ(96px)' }}
+          className="absolute inset-0 bg-purple-500/90 border-2 flex items-center justify-center text-white"
+          style={{ transform: "rotateY(180deg) translateZ(96px)" }}
         >
           Back
         </div>
-        {/* Add other faces */}
+
+        <div
+          className="absolute inset-0 bg-pink-500/90 border-2 flex items-center justify-center text-white"
+          style={{ transform: "rotateY(90deg) translateZ(96px)" }}
+        >
+          Right
+        </div>
+
+        <div
+          className="absolute inset-0 bg-blue-500/90 border-2 flex items-center justify-center text-white"
+          style={{ transform: "rotateY(-90deg) translateZ(96px)" }}
+        >
+          Left
+        </div>
       </motion.div>
     </div>
   );

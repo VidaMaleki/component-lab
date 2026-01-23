@@ -1,0 +1,92 @@
+export const categories = [
+  {
+    name: "Buttons",
+    id: "buttons",
+    count: "12+",
+    color: "bg-blue-100 text-blue-700",
+  },
+  {
+    name: "Form Elements",
+    id: "forms",
+    count: "12+",
+    color: "bg-green-100 text-green-700",
+  },
+  {
+    name: "Navigation",
+    id: "navigation",
+    count: "8+",
+    color: "bg-purple-100 text-purple-700",
+  },
+  {
+    name: "Cards",
+    id: "cards",
+    count: "5+",
+    color: "bg-pink-100 text-pink-700",
+  },
+  {
+    name: "Modals",
+    id: "modals",
+    count: "5+",
+    color: "bg-orange-100 text-orange-700",
+  },
+  {
+    name: "Tables",
+    id: "tables",
+    count: "5+",
+    color: "bg-teal-100 text-teal-700",
+  },
+  {
+    name: "Alerts",
+    id: "alerts",
+    count: "7+",
+    color: "bg-red-100 text-red-700",
+  },
+  {
+    name: "Badges",
+    id: "badges",
+    count: "9+",
+    color: "bg-indigo-100 text-indigo-700",
+  },
+  {
+    name: "Carousels",
+    id: "carousels",
+    count: "7+",
+    color: "bg-cyan-100 text-cyan-700",
+  },
+  {
+    name: "Charts",
+    id: "charts",
+    count: "5+",
+    color: "bg-emerald-100 text-emerald-700",
+  },
+  {
+    name: "Rich Text",
+    id: "richtext",
+    count: "2+",
+    color: "bg-violet-100 text-violet-700",
+  },
+  {
+    name: "Skeleton Loaders",
+    id: "skeleton",
+    count: "6+",
+    color: "bg-slate-100 text-slate-700",
+  },
+  {
+    name: "Animations",
+    id: "animations",
+    count: "7+",
+    color: "bg-yellow-100 text-yellow-700",
+  },
+  {
+    name: "Micro-interactions",
+    id: "micro",
+    count: "7+",
+    color: "bg-lime-100 text-lime-700",
+  },
+  {
+    name: "3D Interactions",
+    id: "3d",
+    count: "6+",
+    color: "bg-fuchsia-100 text-fuchsia-700",
+  },
+];

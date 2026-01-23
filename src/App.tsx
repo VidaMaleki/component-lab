@@ -1,4 +1,4 @@
-import { lazy, Suspense, useMemo, useState, type ComponentType } from "react";
+import { lazy, Suspense, useEffect, useMemo, useState, type ComponentType } from "react";
 import {
   Search,
   Menu,
@@ -34,7 +34,7 @@ const CardsSection = lazy(() => import("./components/sections/CardsSection"));
 const ModalsSection = lazy(() => import("./components/sections/ModalsSection"));
 const TablesSection = lazy(() => import("./components/sections/TablesSection"));
 const AlertsSection = lazy(() => import("./components/sections/AlertsSection"));
-const BadgesSection= lazy(() => import("./components/sections/BadgesSection"));
+const BadgesSection = lazy(() => import("./components/sections/BadgesSection"));
 const AvatarsSection = lazy(() => import("./components/sections/AvatarsSection"));
 const TypographySection = lazy(() => import("./components/sections/TypographySection"));
 const IconsSection = lazy(() => import("./components/sections/IconsSection"));
@@ -58,6 +58,18 @@ type Section = {
   keywords?: string[];
 };
 
+function getSectionIdFromHash(): string | null {
+  // supports "#buttons" or "#/buttons"
+  const raw = window.location.hash.replace(/^#\/?/, "").trim();
+  return raw.length ? raw : null;
+}
+
+function setHashToSection(id: string) {
+  // Use "#/id" (nice convention), but "#id" is fine too
+  window.location.hash = `#/${id}`;
+}
+
+
 export default function App() {
   const [activeSection, setActiveSection] = useState<string>("home");
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -66,40 +78,61 @@ export default function App() {
   //IMPORTANT: Home is NOT in this array (because HomePage needs onNavigate prop)
   const sections: Section[] = useMemo(
     () => [
-      // Foundations
-      { id: "colors", label: "Colors", icon: Palette, component: ColorsSection },
-      { id: "typography", label: "Typography", icon: Type, component: TypographySection },
-      { id: "icons", label: "Icons", icon: Layers, component: IconsSection },
-      { id: "elevation", label: "Elevation", icon: Layers, component: ElevationSection },
-      { id: "layouts", label: "Layouts", icon: Layout, component: LayoutsSection },
-
-      // Core UI Components
-      { id: "buttons", label: "Buttons", icon: Square, component: ButtonsSection, keywords: ["cta", "primary", "secondary", "icon button"] },
-      { id: "forms", label: "Form Elements", icon: FormInput, component: FormsSection },
-      { id: "navigation", label: "Navigation", icon: Navigation, component: NavigationSection },
-      { id: "cards", label: "Cards", icon: CreditCard, component: CardsSection },
-      { id: "tables", label: "Tables", icon: Box, component: TablesSection },
-      { id: "modals", label: "Modals & Overlays", icon: Layout, component: ModalsSection },
-
-      // Feedback & States
-      { id: "alerts", label: "Alerts & Toasts", icon: Bell, component: AlertsSection },
-      { id: "badges", label: "Badges & Chips", icon: Tag, component: BadgesSection },
-      { id: "skeleton", label: "Skeleton Loaders", icon: Loader, component: SkeletonSection },
-
-      // Content & Data
-      { id: "avatars", label: "Avatars", icon: User, component: AvatarsSection },
-      { id: "carousels", label: "Carousels & Sliders", icon: Image, component: CarouselsSection },
-      { id: "charts", label: "Interactive Charts", icon: BarChart3, component: ChartsSection },
-      { id: "richtext", label: "Rich Text Editors", icon: FileText, component: RichTextSection },
-
-      // Advanced UX
-      { id: "command", label: "Command Palettes", icon: Command, component: CommandPaletteSection },
-      { id: "micro", label: "Micro-interactions", icon: Zap, component: MicroInteractionsSection },
-      { id: "animations", label: "Animations & Transitions", icon: Sparkles, component: AnimationsSection },
-      { id: "3d", label: "3D Interactions", icon: Boxes, component: ThreeDSection },
+      { id: 'buttons', label: 'Buttons', icon: Square, component: ButtonsSection },
+      { id: 'forms', label: 'Form Elements', icon: FormInput, component: FormsSection },
+      { id: 'navigation', label: 'Navigation', icon: Navigation, component: NavigationSection },
+      { id: 'cards', label: 'Cards', icon: CreditCard, component: CardsSection },
+      { id: 'modals', label: 'Modals & Overlays', icon: Layout, component: ModalsSection },
+      { id: 'tables', label: 'Tables', icon: Box, component: TablesSection },
+      { id: 'alerts', label: 'Alerts & Toasts', icon: Bell, component: AlertsSection },
+      { id: 'badges', label: 'Badges & Chips', icon: Tag, component: BadgesSection },
+      { id: 'avatars', label: 'Avatars', icon: User, component: AvatarsSection },
+      { id: 'carousels', label: 'Carousels & Sliders', icon: Image, component: CarouselsSection },
+      { id: 'animations', label: 'Animations & Transitions', icon: Sparkles, component: AnimationsSection },
+      { id: 'charts', label: 'Interactive Charts', icon: BarChart3, component: ChartsSection },
+      { id: 'command', label: 'Command Palettes', icon: Command, component: CommandPaletteSection },
+      { id: 'micro', label: 'Micro-interactions', icon: Zap, component: MicroInteractionsSection },
+      { id: '3d', label: '3D Interactions', icon: Boxes, component: ThreeDSection },
+      { id: 'skeleton', label: 'Skeleton Loaders', icon: Loader, component: SkeletonSection },
+      { id: 'richtext', label: 'Rich Text Editors', icon: FileText, component: RichTextSection },
+      { id: 'typography', label: 'Typography', icon: Type, component: TypographySection },
+      { id: 'icons', label: 'Icons', icon: Layers, component: IconsSection },
+      { id: 'layouts', label: 'Layouts', icon: Layout, component: LayoutsSection },
+      { id: 'colors', label: 'Colors', icon: Palette, component: ColorsSection },
+      { id: 'elevation', label: 'Elevation', icon: Layers, component: ElevationSection },
     ],
     []
   );
+
+  //1) On first load: set activeSection from hash
+  useEffect(() => {
+    const idFromHash = getSectionIdFromHash();
+    if (!idFromHash) {
+      setActiveSection("home");
+      return;
+    }
+
+    // validate: allow only known ids
+    const exists = sections.some((s) => s.id === idFromHash);
+    setActiveSection(exists ? idFromHash : "home");
+  }, [sections]);
+
+  //2) Back/Forward button support
+  useEffect(() => {
+    const onHashChange = () => {
+      const idFromHash = getSectionIdFromHash();
+      if (!idFromHash) {
+        setActiveSection("home");
+        return;
+      }
+      const exists = sections.some((s) => s.id === idFromHash);
+      setActiveSection(exists ? idFromHash : "home");
+    };
+
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, [sections]);
+
 
   const matchesFuzzy = (text: string, q: string) => {
     let i = 0;
@@ -125,8 +158,17 @@ export default function App() {
   });
 
   const ActiveComponent = sections.find((s) => s.id === activeSection)?.component;
-
   const firstMatchId = filteredSections[0]?.id;
+
+  const goHome = () => {
+    window.location.hash = "";
+    setActiveSection("home");
+  };
+
+  const goToSection = (id: string) => {
+    setHashToSection(id);
+    setActiveSection(id);
+  };
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -185,10 +227,10 @@ export default function App() {
             }`}
         >
           <nav className="p-4 space-y-1">
-            {/* ✅ Home button (manual) */}
+            {/* Home button (manual) */}
             <button
               onClick={() => {
-                setActiveSection("home");
+                goHome();
                 setSidebarOpen(false);
               }}
               className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${activeSection === "home"
@@ -200,14 +242,14 @@ export default function App() {
               Home
             </button>
 
-            {/* ✅ All other sections */}
+            {/* All other sections */}
             {filteredSections.map((section) => {
               const Icon = section.icon;
               return (
                 <button
                   key={section.id}
                   onClick={() => {
-                    setActiveSection(section.id);
+                    goToSection(section.id);
                     setSidebarOpen(false);
                   }}
                   className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${activeSection === section.id
@@ -227,20 +269,19 @@ export default function App() {
         <main className="flex-1 min-h-[calc(100vh-73px)] overflow-y-auto">
           <div className="max-w-7xl mx-auto p-6 md:p-8 lg:p-12">
             <Suspense fallback={<div className="text-slate-600">Loading…</div>}>
-            {activeSection === "home" ? (
-              <HomePage onNavigate={(id: string) => setActiveSection(id)}
-                searchQuery={searchQuery}
-                onSearchChange={setSearchQuery}
-                firstMatchId={firstMatchId}
-              />
-            ) : (
-              ActiveComponent && <ActiveComponent />
-            )}
+              {activeSection === "home" ? (
+                <HomePage onNavigate={(id: string) => goToSection(id)}
+                  searchQuery={searchQuery}
+                  onSearchChange={setSearchQuery}
+                  firstMatchId={firstMatchId}
+                />
+              ) : (
+                ActiveComponent && <ActiveComponent />
+              )}
             </Suspense>
           </div>
         </main>
       </div>
-
       {/* Mobile overlay */}
       {sidebarOpen && (
         <div

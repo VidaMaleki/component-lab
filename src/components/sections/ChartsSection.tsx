@@ -1,42 +1,9 @@
 import { ComponentShowcase } from '../ComponentShowcase';
 import { LineChart, Line, BarChart, Bar, AreaChart, Area, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { chartData } from '../../../assets/chartData';
 
 export default function ChartsSection() {
-    const lineData = [
-        { name: 'Jan', users: 400, revenue: 2400 },
-        { name: 'Feb', users: 300, revenue: 1398 },
-        { name: 'Mar', users: 600, revenue: 9800 },
-        { name: 'Apr', users: 800, revenue: 3908 },
-        { name: 'May', users: 900, revenue: 4800 },
-        { name: 'Jun', users: 1200, revenue: 3800 },
-    ];
-
-    const barData = [
-        { name: 'Mon', sales: 120 },
-        { name: 'Tue', sales: 190 },
-        { name: 'Wed', sales: 300 },
-        { name: 'Thu', sales: 250 },
-        { name: 'Fri', sales: 420 },
-        { name: 'Sat', sales: 380 },
-        { name: 'Sun', sales: 290 },
-    ];
-
-    const pieData = [
-        { name: 'Product A', value: 400 },
-        { name: 'Product B', value: 300 },
-        { name: 'Product C', value: 200 },
-        { name: 'Product D', value: 100 },
-    ];
-
-    const areaData = [
-        { month: 'Jan', desktop: 186, mobile: 80 },
-        { month: 'Feb', desktop: 305, mobile: 200 },
-        { month: 'Mar', desktop: 237, mobile: 120 },
-        { month: 'Apr', desktop: 273, mobile: 190 },
-        { month: 'May', desktop: 209, mobile: 130 },
-        { month: 'Jun', desktop: 314, mobile: 240 },
-    ];
-
+    const { lineData, barData, pieData, areaData } = chartData;
     const COLORS = ['#6366f1', '#8b5cf6', '#ec4899', '#f59e0b'];
 
     return (
@@ -47,9 +14,9 @@ export default function ChartsSection() {
                     Data visualization components with hover effects, tooltips, and real-time updates using Recharts.
                 </p>
             </div>
-
             {/* Line Chart */}
             <ComponentShowcase
+                allowReload={true}
                 title="Line Chart"
                 description="Multi-line chart with hover tooltips"
                 preview={
@@ -118,6 +85,7 @@ function LineChartComponent() {
 
             {/* Bar Chart */}
             <ComponentShowcase
+                allowReload={true}
                 title="Bar Chart"
                 description="Interactive bar chart with hover effects"
                 preview={
@@ -170,6 +138,7 @@ function BarChartComponent() {
 
             {/* Area Chart */}
             <ComponentShowcase
+            allowReload={true}
                 title="Area Chart"
                 description="Stacked area chart for comparing data"
                 preview={
@@ -238,6 +207,7 @@ function AreaChartComponent() {
 
             {/* Pie Chart */}
             <ComponentShowcase
+            allowReload={true}
                 title="Pie Chart"
                 description="Interactive pie chart with segments"
                 preview={
@@ -250,7 +220,7 @@ function AreaChartComponent() {
                                     cx="50%"
                                     cy="50%"
                                     labelLine={false}
-                                    label={({ name, percent= 0  }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                                    label={({ name, percent = 0 }) => `${name} ${(percent * 100).toFixed(0)}%`}
                                     outerRadius={100}
                                     fill="#8884d8"
                                     dataKey="value"
@@ -300,6 +270,7 @@ function PieChartComponent() {
 
             {/* Mini Dashboard */}
             <ComponentShowcase
+            allowReload={true}
                 title="Mini Dashboard"
                 description="Combined charts in a dashboard layout"
                 preview={
@@ -347,6 +318,7 @@ function PieChartComponent() {
                     </div>
                 }
                 code={`import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { chartData } from '../../../assets/chartData';
 
 function Dashboard() {
   const data = [/* chart data */];

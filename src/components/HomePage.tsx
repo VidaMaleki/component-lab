@@ -1,5 +1,7 @@
 import { Search, Zap, Code, Palette, CheckCircle } from 'lucide-react';
+import * as React from 'react';
 import { FaGithub } from "react-icons/fa";
+import { categories } from '../../assets/categories';
 
 type HomePageProps = {
     onNavigate: (id: string) => void;
@@ -9,24 +11,7 @@ type HomePageProps = {
 };
 
 export function HomePage({ onNavigate, searchQuery, onSearchChange, firstMatchId }: HomePageProps) {
-    const categories = [
-        { name: 'Buttons', id: 'buttons', count: '15+', color: 'bg-blue-100 text-blue-700' },
-        { name: 'Form Elements', id: 'forms', count: '20+', color: 'bg-green-100 text-green-700' },
-        { name: 'Navigation', id: 'navigation', count: '10+', color: 'bg-purple-100 text-purple-700' },
-        { name: 'Cards', id: 'cards', count: '8+', color: 'bg-pink-100 text-pink-700' },
-        { name: 'Modals', id: 'modals', count: '6+', color: 'bg-orange-100 text-orange-700' },
-        { name: 'Tables', id: 'tables', count: '5+', color: 'bg-teal-100 text-teal-700' },
-        { name: 'Alerts', id: 'alerts', count: '4+', color: 'bg-red-100 text-red-700' },
-        { name: 'Badges', id: 'badges', count: '10+', color: 'bg-indigo-100 text-indigo-700' },
-        { name: 'Carousels', id: 'carousels', count: '7+', color: 'bg-cyan-100 text-cyan-700' },
-        { name: 'Charts', id: 'charts', count: '6+', color: 'bg-emerald-100 text-emerald-700' },
-        { name: 'Rich Text', id: 'richtext', count: '2+', color: 'bg-violet-100 text-violet-700' },
-        { name: 'Skeleton Loaders', id: 'skeleton', count: '4+', color: 'bg-slate-100 text-slate-700' },
-        { name: 'Animations', id: 'animations', count: '8+', color: 'bg-yellow-100 text-yellow-700' },
-        { name: 'Micro-interactions', id: 'micro', count: '6+', color: 'bg-lime-100 text-lime-700' },
-        { name: '3D Interactions', id: '3d', count: '4+', color: 'bg-fuchsia-100 text-fuchsia-700' },
-    ];
-
+    const categoriesRef = React.useRef<HTMLDivElement | null>(null);
 
     const features = [
         {
@@ -51,13 +36,14 @@ export function HomePage({ onNavigate, searchQuery, onSearchChange, firstMatchId
         },
     ];
 
+    const scrollToCategories = () => {
+        categoriesRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
     return (
         <div className="space-y-12">
             {/* Hero Section */}
             <div className="text-center space-y-4 py-12">
-                <div className="inline-block px-4 py-1.5 bg-indigo-100 text-indigo-700 rounded-full text-sm mb-4">
-                    v1.0.0 • Open Source
-                </div>
                 <h1 className="text-slate-900 max-w-3xl mx-auto">
                     Beautiful UI Components for Modern Web Applications
                 </h1>
@@ -66,7 +52,7 @@ export function HomePage({ onNavigate, searchQuery, onSearchChange, firstMatchId
                     Copy, paste, and customize to build your next project faster.
                 </p>
                 <div className="flex items-center justify-center gap-4 pt-6">
-                    <button onClick={() => onNavigate("buttons")} className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+                    <button onClick={scrollToCategories} className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
                         Browse Components
                     </button>
                     <a
@@ -115,7 +101,7 @@ export function HomePage({ onNavigate, searchQuery, onSearchChange, firstMatchId
             </div>
 
             {/* Categories */}
-            <div>
+            <div ref={categoriesRef}>
                 <h2 className="text-slate-900 mb-6">Component Categories</h2>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     {categories.map((category) => (
@@ -136,7 +122,6 @@ export function HomePage({ onNavigate, searchQuery, onSearchChange, firstMatchId
                     ))}
                 </div>
             </div>
-
             {/* Getting Started */}
             <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-8 border border-indigo-100">
                 <h2 className="text-slate-900 mb-4">Getting Started</h2>

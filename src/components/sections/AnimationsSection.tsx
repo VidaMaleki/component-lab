@@ -18,6 +18,7 @@ export default function AnimationsSection() {
 
             {/* Fade In Up Animation */}
             <ComponentShowcase
+                allowReload
                 title="Fade In Up Animation"
                 description="Elements animate in from below with fade effect"
                 preview={
@@ -28,7 +29,7 @@ export default function AnimationsSection() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
-                                className="w-40 h-40 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center text-white shadow-lg"
+                                className="w-40 h-40 bg-linear-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center text-white shadow-lg"
                             >
                                 Item {item}
                             </motion.div>
@@ -46,7 +47,7 @@ function FadeInUp() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: index * 0.1 }}
-          className="w-40 h-40 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl"
+          className="w-40 h-40 bg-linear-to-br from-indigo-500 to-purple-500 rounded-xl"
         >
           Item {item}
         </motion.div>
@@ -65,28 +66,28 @@ function FadeInUp() {
                         <motion.div
                             whileHover={{ scale: 1.1, rotate: 5 }}
                             whileTap={{ scale: 0.95 }}
-                            className="w-32 h-32 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center text-white cursor-pointer shadow-lg"
+                            className="w-32 h-32 bg-linear-to-br from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center text-white cursor-pointer shadow-lg"
                         >
                             <Heart className="w-12 h-12" />
                         </motion.div>
                         <motion.div
                             whileHover={{ scale: 1.1, rotate: -5 }}
                             whileTap={{ scale: 0.95 }}
-                            className="w-32 h-32 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-white cursor-pointer shadow-lg"
+                            className="w-32 h-32 bg-linear-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-white cursor-pointer shadow-lg"
                         >
                             <Bell className="w-12 h-12" />
                         </motion.div>
                         <motion.div
                             whileHover={{ scale: 1.1, rotate: 5 }}
                             whileTap={{ scale: 0.95 }}
-                            className="w-32 h-32 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center text-white cursor-pointer shadow-lg"
+                            className="w-32 h-32 bg-linear-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center text-white cursor-pointer shadow-lg"
                         >
                             <ShoppingCart className="w-12 h-12" />
                         </motion.div>
                         <motion.div
                             whileHover={{ scale: 1.1, rotate: -8 }}
                             whileTap={{ scale: 0.95 }}
-                            className="w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center text-white cursor-pointer shadow-lg"
+                            className="w-32 h-32 bg-linear-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center text-white cursor-pointer shadow-lg"
                         >
                             <Star className="w-12 h-12 text-white" />
                         </motion.div>
@@ -100,7 +101,7 @@ function ScaleRotate() {
     <motion.div
       whileHover={{ scale: 1.1, rotate: 5 }}
       whileTap={{ scale: 0.95 }}
-      className="w-32 h-32 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl cursor-pointer"
+      className="w-32 h-32 bg-linear-to-br from-pink-500 to-rose-500 rounded-2xl cursor-pointer"
     >
       <Heart className="w-12 h-12" />
     </motion.div>
@@ -171,6 +172,7 @@ function SpringAnimation() {
 
             {/* Stagger Children */}
             <ComponentShowcase
+                allowReload
                 title="Stagger Children Animation"
                 description="Sequentially animate child elements"
                 preview={
@@ -195,7 +197,7 @@ function SpringAnimation() {
                                     hidden: { opacity: 0, scale: 0.8 },
                                     visible: { opacity: 1, scale: 1 },
                                 }}
-                                className="h-24 bg-gradient-to-br from-violet-500 to-purple-500 rounded-xl flex items-center justify-center text-white shadow-lg"
+                                className="w-20 h-20 bg-linear-to-br from-violet-500 to-purple-500 rounded-xl flex items-center justify-center text-white shadow-lg"
                             >
                                 {item}
                             </motion.div>
@@ -225,7 +227,7 @@ function StaggerChildren() {
             hidden: { opacity: 0, scale: 0.8 },
             visible: { opacity: 1, scale: 1 }
           }}
-          className="h-24 bg-gradient-to-br from-violet-500 to-purple-500 rounded-xl"
+          className="w-20 h-20 bg-linear-to-br from-violet-500 to-purple-500 rounded-xl"
         >
           {item}
         </motion.div>
@@ -299,7 +301,7 @@ function AnimatedCounter() {
                             drag
                             dragConstraints={{ left: 0, right: 200, top: 0, bottom: 150 }}
                             dragElastic={0.1}
-                            className="w-24 h-24 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center text-white cursor-grab active:cursor-grabbing shadow-lg"
+                            className="w-24 h-24 bg-linear-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center text-white cursor-grab active:cursor-grabbing shadow-lg"
                         >
                             <Zap className="w-8 h-8 text-white" />
                         </motion.div>
@@ -313,7 +315,7 @@ function DragAnimation() {
       drag
       dragConstraints={{ left: 0, right: 200, top: 0, bottom: 150 }}
       dragElastic={0.1}
-      className="w-24 h-24 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl cursor-grab"
+      className="w-24 h-24 bg-linear-to-br from-orange-500 to-red-500 rounded-2xl cursor-grab"
     >
       Drag me
     </motion.div>
@@ -323,6 +325,7 @@ function DragAnimation() {
 
             {/* Path Animation */}
             <ComponentShowcase
+                allowReload
                 title="SVG Path Animation"
                 description="Animate SVG path drawing"
                 preview={
