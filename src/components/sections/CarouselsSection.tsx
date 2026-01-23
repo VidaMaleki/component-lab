@@ -195,7 +195,7 @@ export default function CarouselsSection() {
                 description="Carousel for customer testimonials"
                 preview={
                     <div className="w-full max-w-2xl">
-                        <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-8 border border-indigo-100">
+                        <div className="bg-linear-to-br from-indigo-50 to-purple-50 rounded-xl p-8 border border-indigo-100">
                             <div className="relative overflow-hidden">
                                 <div
                                     className="flex transition-transform duration-500 ease-out"
@@ -255,7 +255,7 @@ export default function CarouselsSection() {
                                     {products.map((product) => (
                                         <div
                                             key={product.id}
-                                            className="flex-shrink-0 w-52 bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow"
+                                            className="shrink-0 w-52 bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow"
                                         >
                                             <div className="h-40 bg-slate-100 flex items-center justify-center text-slate-400">Product</div>
                                             <div className="p-4">
@@ -397,7 +397,7 @@ export default function CarouselsSection() {
                         <div className="relative py-16 px-8">
                             {/* Stage */}
                             <div
-                                className="relative mx-auto h-[420px]"
+                                className="relative mx-auto h-105"
                                 style={{ perspective: "1200px" }}
                             >
                                 {centerCards.map((card, i) => {
@@ -442,7 +442,7 @@ export default function CarouselsSection() {
                                             }}
                                         >
                                             <div
-                                                className={`bg-gradient-to-br ${card.color} rounded-2xl shadow-2xl flex flex-col justify-end text-white`}
+                                                className={`bg-linear-to-br ${card.color} rounded-2xl shadow-2xl flex flex-col justify-end text-white`}
                                                 style={{
                                                     width: `${w}px`,
                                                     height: `${h}px`,

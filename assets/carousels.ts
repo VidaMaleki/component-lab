@@ -153,7 +153,7 @@ export const carouselsCodeSnippets: { [key: string]: string } = {
 
     return (
         <div className="w-full max-w-2xl">
-        <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-8 border border-indigo-100">
+        <div className="bg-linear-to-br from-indigo-50 to-purple-50 rounded-xl p-8 border border-indigo-100">
             <div className="overflow-hidden">
             <div
                 className="flex transition-transform duration-500 ease-out"
@@ -223,7 +223,7 @@ export const carouselsCodeSnippets: { [key: string]: string } = {
                 {products.map((p) => (
                 <div
                     key={p.id}
-                    className="flex-shrink-0 w-52 bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow"
+                    className="shrink-0 w-52 bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow"
                 >
                     <div className="h-40 bg-slate-100 flex items-center justify-center text-slate-400">
                     Product
@@ -385,7 +385,7 @@ export const carouselsCodeSnippets: { [key: string]: string } = {
 
     return (
         <div className="relative py-14 overflow-hidden">
-        <div className="relative flex items-center justify-center h-[28rem]">
+        <div className="relative flex items-center justify-center h-112">
             {cards.map((card, i) => {
             const offset = i - index;
 
@@ -406,7 +406,7 @@ export const carouselsCodeSnippets: { [key: string]: string } = {
                 <div
                 key={i}
                 className={
-                    "absolute transition-all duration-500 ease-out w-80 h-96 rounded-2xl shadow-2xl p-8 text-white flex flex-col justify-end bg-gradient-to-br " +
+                    "absolute transition-all duration-500 ease-out w-80 h-96 rounded-2xl shadow-2xl p-8 text-white flex flex-col justify-end bg-linear-to-br " +
                     card.color
                 }
                 style={{
