@@ -194,7 +194,7 @@ function StarRating() {
                         <motion.button
                             whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(0,0,0,0.2)' }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-lg"
+                            className="px-6 py-3 bg-linear-to-r from-pink-500 to-purple-500 text-white rounded-lg"
                         >
                             Gradient Button
                         </motion.button>
@@ -409,7 +409,7 @@ function NotificationBell() {
                             whileHover={{
                                 boxShadow: '0 0 20px rgba(99, 102, 241, 0.5)',
                             }}
-                            className="px-6 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl cursor-pointer"
+                            className="px-6 py-4 bg-linear-to-r from-indigo-600 to-purple-600 text-white rounded-xl cursor-pointer"
                         >
                             Hover for Glow
                         </motion.div>
@@ -418,7 +418,7 @@ function NotificationBell() {
                             whileHover={{
                                 boxShadow: '0 0 30px rgba(236, 72, 153, 0.6)',
                             }}
-                            className="px-6 py-4 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-xl cursor-pointer"
+                            className="px-6 py-4 bg-linear-to-r from-pink-500 to-rose-500 text-white rounded-xl cursor-pointer"
                         >
                             Pink Glow
                         </motion.div>
@@ -427,7 +427,7 @@ function NotificationBell() {
                             whileHover={{
                                 boxShadow: '0 0 30px rgba(34, 197, 94, 0.6)',
                             }}
-                            className="px-6 py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl cursor-pointer"
+                            className="px-6 py-4 bg-linear-to-r from-green-500 to-emerald-500 text-white rounded-xl cursor-pointer"
                         >
                             Green Glow
                         </motion.div>
@@ -441,7 +441,7 @@ function GlowEffect() {
       whileHover={{
         boxShadow: '0 0 20px rgba(99, 102, 241, 0.5)',
       }}
-      className="px-6 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl cursor-pointer"
+      className="px-6 py-4 bg-linear-to-r from-indigo-600 to-purple-600 text-white rounded-xl cursor-pointer"
     >
       Hover for Glow
     </motion.div>

@@ -192,7 +192,7 @@ function CommandPalette() {
                                     onClick={() => setIsOpen2(false)}
                                 />
                                 <div className="fixed top-20 left-1/2 -translate-x-1/2 w-full max-w-2xl z-50 bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden">
-                                    <div className="p-4 border-b border-slate-200 bg-gradient-to-r from-indigo-500 to-purple-500">
+                                    <div className="p-4 border-b border-slate-200 bg-linear-to-r from-indigo-500 to-purple-500">
                                         <div className="flex items-center gap-3">
                                             <Command className="w-5 h-5 text-white" />
                                             <input

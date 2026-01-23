@@ -184,7 +184,7 @@ export default function App() {
             </button>
 
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-linear-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center">
                 <Layers className="w-5 h-5 text-white" />
               </div>
               <div>
@@ -223,7 +223,7 @@ export default function App() {
       <div className="flex">
         {/* Sidebar */}
         <aside
-          className={`fixed md:sticky top-[73px] left-0 z-40 w-64 h-[calc(100vh-73px)] bg-white border-r border-slate-200 overflow-y-auto transition-transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+          className={`fixed md:sticky top-18.25 left-0 z-40 w-64 h-[calc(100vh-73px)] bg-white border-r border-slate-200 overflow-y-auto transition-transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
             }`}
         >
           <nav className="p-4 space-y-1">

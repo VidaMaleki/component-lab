@@ -270,7 +270,7 @@ export default function SkeletonSection() {
                                             <div className="h-3 bg-slate-200 rounded w-1/2" />
                                         </div>
                                     </div>
-                                    <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/60 to-transparent" />
+                                    <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-linear-to-r from-transparent via-white/60 to-transparent" />
                                 </div>
                             ))}
                         </div>
@@ -293,7 +293,7 @@ function ShimmerSkeleton() {
           <div className="h-3 bg-slate-200 rounded w-1/2" />
         </div>
       </div>
-      <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/60 to-transparent" />
+      <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-linear-to-r from-transparent via-white/60 to-transparent" />
     </div>
   );
 }`}

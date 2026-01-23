@@ -231,7 +231,7 @@ export default function LayoutsSection() {
                 title="Sidebar Layout"
                 description="Classic sidebar with main content"
                 preview={
-                    <div className="w-full flex gap-4 min-h-[200px]">
+                    <div className="w-full flex gap-4 min-h-50">
                         <div className="w-48 bg-slate-800 rounded-lg p-4">
                             <div className="text-white text-sm">Sidebar</div>
                         </div>

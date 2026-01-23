@@ -267,19 +267,19 @@ export default function IconsSection() {
                 </p>
                 <ul className="space-y-2 text-sm text-indigo-700">
                     <li className="flex items-start gap-2">
-                        <Check className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                        <Check className="w-4 h-4 mt-0.5 shrink-0" />
                         <span>Fully customizable with Tailwind CSS classes</span>
                     </li>
                     <li className="flex items-start gap-2">
-                        <Check className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                        <Check className="w-4 h-4 mt-0.5 shrink-0" />
                         <span>Tree-shakeable for optimal bundle size</span>
                     </li>
                     <li className="flex items-start gap-2">
-                        <Check className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                        <Check className="w-4 h-4 mt-0.5 shrink-0" />
                         <span>Accessible and semantic</span>
                     </li>
                     <li className="flex items-start gap-2">
-                        <Check className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                        <Check className="w-4 h-4 mt-0.5 shrink-0" />
                         <span>Easy to import and use</span>
                     </li>
                 </ul>

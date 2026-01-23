@@ -242,7 +242,7 @@ export default function ElevationSection() {
                 <h3 className="text-slate-900 mb-4">Elevation Level Guidelines</h3>
                 <div className="space-y-4">
                     <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-16 h-16 bg-white shadow-sm rounded-lg"></div>
+                        <div className="shrink-0 w-16 h-16 bg-white shadow-sm rounded-lg"></div>
                         <div>
                             <div className="text-slate-900 mb-1">Level 1 - shadow-sm</div>
                             <p className="text-sm text-slate-600">
@@ -252,7 +252,7 @@ export default function ElevationSection() {
                     </div>
 
                     <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-16 h-16 bg-white shadow-md rounded-lg"></div>
+                        <div className="shrink-0 w-16 h-16 bg-white shadow-md rounded-lg"></div>
                         <div>
                             <div className="text-slate-900 mb-1">Level 2 - shadow-md</div>
                             <p className="text-sm text-slate-600">
@@ -262,7 +262,7 @@ export default function ElevationSection() {
                     </div>
 
                     <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-16 h-16 bg-white shadow-lg rounded-lg"></div>
+                        <div className="shrink-0 w-16 h-16 bg-white shadow-lg rounded-lg"></div>
                         <div>
                             <div className="text-slate-900 mb-1">Level 3 - shadow-lg</div>
                             <p className="text-sm text-slate-600">
@@ -272,7 +272,7 @@ export default function ElevationSection() {
                     </div>
 
                     <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-16 h-16 bg-white shadow-2xl rounded-lg"></div>
+                        <div className="shrink-0 w-16 h-16 bg-white shadow-2xl rounded-lg"></div>
                         <div>
                             <div className="text-slate-900 mb-1">Level 4 - shadow-2xl</div>
                             <p className="text-sm text-slate-600">
@@ -288,23 +288,23 @@ export default function ElevationSection() {
                 <h3 className="text-indigo-900 mb-4">Shadow Best Practices</h3>
                 <div className="space-y-3 text-sm text-indigo-700">
                     <div className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full mt-2 flex-shrink-0"></div>
+                        <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full mt-2 shrink-0"></div>
                         <p>Use consistent shadow levels throughout your design for visual hierarchy</p>
                     </div>
                     <div className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full mt-2 flex-shrink-0"></div>
+                        <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full mt-2 shrink-0"></div>
                         <p>Apply higher elevations to elements that appear closer to the user</p>
                     </div>
                     <div className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full mt-2 flex-shrink-0"></div>
+                        <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full mt-2 shrink-0"></div>
                         <p>Use hover shadow transitions to indicate interactivity</p>
                     </div>
                     <div className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full mt-2 flex-shrink-0"></div>
+                        <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full mt-2 shrink-0"></div>
                         <p>Don't overuse shadows - they should enhance, not distract</p>
                     </div>
                     <div className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full mt-2 flex-shrink-0"></div>
+                        <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full mt-2 shrink-0"></div>
                         <p>Consider using colored shadows sparingly for special emphasis</p>
                     </div>
                 </div>

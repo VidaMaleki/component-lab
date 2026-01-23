@@ -32,7 +32,7 @@ export default function ModalsSection() {
                             <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
                                 <div className="bg-white rounded-xl max-w-md w-full p-6">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center shrink-0">
                                             <AlertTriangle className="w-6 h-6 text-red-600" />
                                         </div>
                                         <div className="flex-1">
@@ -315,7 +315,7 @@ function ConfirmModal() {
                 preview={
                     <div className="bg-white rounded-xl max-w-md w-full p-6 border border-slate-200">
                         <div className="flex items-start gap-4">
-                            <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center shrink-0">
                                 <Info className="w-5 h-5 text-blue-600" />
                             </div>
                             <div className="flex-1">

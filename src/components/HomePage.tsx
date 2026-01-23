@@ -123,11 +123,11 @@ export function HomePage({ onNavigate, searchQuery, onSearchChange, firstMatchId
                 </div>
             </div>
             {/* Getting Started */}
-            <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-8 border border-indigo-100">
+            <div className="bg-linear-to-br from-indigo-50 to-purple-50 rounded-2xl p-8 border border-indigo-100">
                 <h2 className="text-slate-900 mb-4">Getting Started</h2>
                 <div className="space-y-4">
                     <div className="flex items-start gap-3">
-                        <div className="w-6 h-6 bg-indigo-600 text-white rounded-full flex items-center justify-center text-sm flex-shrink-0 mt-0.5">
+                        <div className="w-6 h-6 bg-indigo-600 text-white rounded-full flex items-center justify-center text-sm shrink-0 mt-0.5">
                             1
                         </div>
                         <div>
@@ -138,7 +138,7 @@ export function HomePage({ onNavigate, searchQuery, onSearchChange, firstMatchId
                         </div>
                     </div>
                     <div className="flex items-start gap-3">
-                        <div className="w-6 h-6 bg-indigo-600 text-white rounded-full flex items-center justify-center text-sm flex-shrink-0 mt-0.5">
+                        <div className="w-6 h-6 bg-indigo-600 text-white rounded-full flex items-center justify-center text-sm shrink-0 mt-0.5">
                             2
                         </div>
                         <div>
@@ -149,7 +149,7 @@ export function HomePage({ onNavigate, searchQuery, onSearchChange, firstMatchId
                         </div>
                     </div>
                     <div className="flex items-start gap-3">
-                        <div className="w-6 h-6 bg-indigo-600 text-white rounded-full flex items-center justify-center text-sm flex-shrink-0 mt-0.5">
+                        <div className="w-6 h-6 bg-indigo-600 text-white rounded-full flex items-center justify-center text-sm shrink-0 mt-0.5">
                             3
                         </div>
                         <div>

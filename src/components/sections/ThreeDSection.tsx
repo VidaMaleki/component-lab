@@ -73,7 +73,7 @@ export default function ThreeDSection() {
                                 transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
                                 transition: 'transform 0.1s ease-out',
                             }}
-                            className="w-80 h-96 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-2xl p-8 shadow-2xl cursor-pointer"
+                            className="w-80 h-96 bg-linear-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-2xl p-8 shadow-2xl cursor-pointer"
                         >
                             <div className="h-full flex flex-col justify-between text-white">
                                 <div>
@@ -118,7 +118,7 @@ function ThreeDCard() {
         transform: \`perspective(1000px) rotateX(\${rotateX}deg) rotateY(\${rotateY}deg)\`,
         transition: 'transform 0.1s ease-out',
       }}
-      className="w-80 h-96 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-2xl p-8"
+      className="w-80 h-96 bg-linear-to-br from-indigo-500 to-pink-500 rounded-2xl p-8"
     >
       <h3>3D Card</h3>
       <p>Move your mouse to see the effect</p>
@@ -142,7 +142,7 @@ function ThreeDCard() {
                             <div className="relative w-full h-full" style={{ transformStyle: 'preserve-3d' }}>
                                 {/* Front */}
                                 <div
-                                    className="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl p-8 flex items-center justify-center text-white shadow-xl"
+                                    className="absolute inset-0 bg-linear-to-br from-blue-500 to-cyan-500 rounded-2xl p-8 flex items-center justify-center text-white shadow-xl"
                                     style={{ backfaceVisibility: 'hidden' }}
                                 >
                                     <div className="text-center">
@@ -152,7 +152,7 @@ function ThreeDCard() {
                                 </div>
                                 {/* Back */}
                                 <div
-                                    className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl p-8 flex items-center justify-center text-white shadow-xl"
+                                    className="absolute inset-0 bg-linear-to-br from-purple-500 to-pink-500 rounded-2xl p-8 flex items-center justify-center text-white shadow-xl"
                                     style={{
                                         backfaceVisibility: 'hidden',
                                         transform: 'rotateY(180deg)',
@@ -180,14 +180,14 @@ function FlipCard() {
       <div className="relative w-full h-full" style={{ transformStyle: 'preserve-3d' }}>
         {/* Front */}
         <div
-          className="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl p-8"
+          className="absolute inset-0 bg-linear-to-br from-blue-500 to-cyan-500 rounded-2xl p-8"
           style={{ backfaceVisibility: 'hidden' }}
         >
           <h3>Front Side</h3>
         </div>
         {/* Back */}
         <div
-          className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl p-8"
+          className="absolute inset-0 bg-linear-to-br from-purple-500 to-pink-500 rounded-2xl p-8"
           style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
         >
           <h3>Back Side</h3>

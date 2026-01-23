@@ -463,7 +463,7 @@ function Slider() {
                             <input
                                 type="text"
                                 placeholder="Add more..."
-                                className="flex-1 min-w-[120px] px-2 py-1 outline-none text-sm"
+                                className="flex-1 min-w-30 px-2 py-1 outline-none text-sm"
                             />
                         </div>
                     </div>
@@ -476,7 +476,7 @@ function Slider() {
   <input
     type="text"
     placeholder="Add more..."
-    className="flex-1 min-w-[120px] px-2 py-1 outline-none text-sm"
+    className="flex-1 min-w-30 px-2 py-1 outline-none text-sm"
   />
 </div>`}
             />

@@ -163,7 +163,7 @@ export default function RichTextSection() {
                                 </button>
                             </div>
                         </div>
-                        <div className="p-6 min-h-[200px] text-slate-900">
+                        <div className="p-6 min-h-50 text-slate-900">
                             Click on toolbar buttons to format your text...
                         </div>
                     </div>
@@ -263,12 +263,12 @@ export function EditorToolbar() {
                             }}
                             onKeyUp={syncActiveStates}
                             onMouseUp={syncActiveStates}
-                            className="p-6 min-h-[200px] focus:outline-none text-slate-900 prose prose-sm max-w-none"
+                            className="p-6 min-h-50 focus:outline-none text-slate-900 prose prose-sm max-w-none"
                             dangerouslySetInnerHTML={{ __html: html }}
                         />
                     </div>
                 }
-                code={`"use client";
+                code={`
 import { useRef, useState } from "react";
 import { Bold } from "lucide-react";
 
@@ -294,7 +294,7 @@ export function BasicWYSIWYG() {
         contentEditable
         suppressContentEditableWarning
         onInput={() => setHtml(ref.current?.innerHTML ?? "")}
-        className="p-6 min-h-[160px]"
+        className="p-6 min-h-40"
         dangerouslySetInnerHTML={{ __html: html }}
       />
     </div>
